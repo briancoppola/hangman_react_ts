@@ -13,7 +13,7 @@ After the game ends, the play area will turn green (a win) or red (a loss), and 
 - Game is fully playable with the keyboard as well as the mouse, and letter guesses can be made with both methods
 - Letter buttons will self-disable when chosen and change color based on whether or not it is in the mystery word
 - Status bar that displays game result message and replay button
-- Game and website are fully responsive and will be playable on mobile devices as well as desktop computers
+- The game and most elements of the website are responsive (aside from the target word, which may cause horizontal scrolling on mobile devices with larger words)
 
 ## Screenshot
 
