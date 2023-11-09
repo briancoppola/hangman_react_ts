@@ -1,10 +1,10 @@
-# hangman
+# hangman_react_ts
 
-A lovely web-based version of the classic Hangman game.
+A lovely web-based version of the classic Hangman game using React and TypeScript.
 
 ## Description
 
-This is a fully-funtioning Hangman game designed and coded from scratch using a combination of React, JavaScript, CSS, and HTML. The rules are familiar: Reveal the mystery word by taking turns guessing if a letter is contained in the word. Correct guesses will reveal the location(s) of that letter in the word, and incorrect guesses will draw a section of a hanging stickman. The objective is to reveal the complete word before the stickman is fully revealed.
+This is a fully-funtioning Hangman game designed and coded from scratch using a combination of React, TypeScript, JavaScript, CSS, and HTML. The rules are familiar: Reveal the mystery word by taking turns guessing if a letter is contained in the word. Correct guesses will reveal the location(s) of that letter in the word, and incorrect guesses will draw a section of a hanging stickman. The objective is to reveal the complete word before the stickman is fully revealed.
 
 After the game ends, the play area will turn green (a win) or red (a loss), and a message will appear in the status area with a replay button.
 
