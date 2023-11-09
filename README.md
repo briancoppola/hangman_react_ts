@@ -17,7 +17,7 @@ After the game ends, the play area will turn green (a win) or red (a loss), and 
 
 ## Screenshot
 
-![Screen-Shot-2023-09-22-at-3 49 37-PM](https://github.com/briancoppola/hangman/assets/58447266/387df901-8924-44e1-9ae2-f5e92261b850)
+![screenshot](https://github.com/briancoppola/hangman_react_ts/assets/58447266/01426a0b-c2f5-498a-9507-9a5a889f8d4b)
 
 ## Setup
 
