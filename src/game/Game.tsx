@@ -21,10 +21,17 @@ const Game = () => {
     return !targetWord.split('').includes(letter);
   });
 
-  /* Input event handling */
-
   const wonGame = targetWord.split('').every((letter: string) => guessedLetters.includes(letter));
   const lostGame = incorrectGuesses.length >= 6;
+
+  /* Game state */
+
+  const resetGame = useCallback(() => {
+    setTargetWord(getNewWord);
+    setGuessedLetters([]);
+  }, []);
+
+  /* Event handlers */
 
   const addGuessedLetter = useCallback(
     (letter: string) => {
@@ -44,11 +51,17 @@ const Game = () => {
       event.preventDefault();
       const key = event.key;
 
-      if (!key.match(/^[a-zA-Z]$/)) {
-        return;
-      }
+      if (wonGame || lostGame) {
+        if (key === 'Enter') {
+          resetGame();
+        }
+      } else {
+        if (!key.match(/^[a-zA-Z]$/)) {
+          return;
+        }
 
-      addGuessedLetter(key);
+        addGuessedLetter(key);
+      }
     };
 
     document.addEventListener('keydown', handleKeyPress);
@@ -56,14 +69,9 @@ const Game = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [addGuessedLetter]);
+  }, [addGuessedLetter, resetGame, wonGame, lostGame]);
 
-  /* Game state */
-
-  const resetGame = () => {
-    setTargetWord(getNewWord);
-    setGuessedLetters([]);
-  };
+  /* Play area classes */
 
   let classes = 'game';
   if (wonGame) classes += ' win';
@@ -76,6 +84,8 @@ const Game = () => {
         <HangmanDrawing incorrectGuesses={incorrectGuesses} />
         <Guess word={targetWord} guessedLetters={guessedLetters} lostGame={lostGame} />
         <Keyboard
+          wonGame={wonGame}
+          lostGame={lostGame}
           correctGuesses={correctGuesses}
           incorrectGuesses={incorrectGuesses}
           addGuessedLetter={addGuessedLetter}

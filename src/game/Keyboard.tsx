@@ -2,22 +2,22 @@ import React from 'react';
 import { keys } from '../app/data/keys';
 
 interface Props {
+  wonGame: boolean;
+  lostGame: boolean;
   correctGuesses: string[];
   incorrectGuesses: string[];
   addGuessedLetter: (letter: string) => void;
 }
 
 const Keyboard: React.FC<Props> = (props) => {
-  const correctGuesses = props.correctGuesses;
-  const incorrectGuesses = props.incorrectGuesses;
-  const addGuessedLetter = props.addGuessedLetter;
+  const { wonGame, lostGame, correctGuesses, incorrectGuesses, addGuessedLetter } = props;
 
   return (
     <div className="keyboard">
       {keys.map((key) => {
         const correctGuess = correctGuesses.includes(key);
         const incorrectGuess = incorrectGuesses.includes(key);
-        const disabled = correctGuess || incorrectGuess;
+        const disabled = correctGuess || incorrectGuess || wonGame || lostGame;
 
         let classes = 'keyboard__key';
         if (correctGuess) classes += ' correct';
